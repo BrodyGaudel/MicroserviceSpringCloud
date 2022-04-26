@@ -1,0 +1,33 @@
+Pour acceder à l'interface Eureka-Service : http://localhost:8761
+-------------------------------------------------------------------------------------------------------------------------
+Pour consulter la liste des clients : http://localhost:8081/customers
+-------------------------------------------------------------------------------------------------------------------------
+Pour consulter la liste des clients (en passant par la gateway): http://localhost:8888/CUSTOMER-SERVICE/customers
+-------------------------------------------------------------------------------------------------------------------------
+Pour consulter un client selon son id(ici son id=1): http://localhost:8888/CUSTOMER-SERVICE/customers/1
+-------------------------------------------------------------------------------------------------------------------------
+Pour ajouter un client : http://localhost:8888/CUSTOMER-SERVICE/customers
+{
+	"id":"9",
+	"name": "customer's name",
+	"email": "email@customer.com"
+}
+-------------------------------------------------------------------------------------------------------------------------
+Consulter la liste des factures : http://localhost:8888/BILLING-SERVICE/bills
+--------------------------------------------------------------------------------------------------------------------------
+Pour Consulter une factures à l'aide de son id : http://localhost:8888/BILLING-SERVICE/bills/1
+--------------------------------------------------------------------------------------------------------------------------
+Pour consulter la liste des produits: http://localhost:8888/IVENTORY-SERVICE/products
+--------------------------------------------------------------------------------------------------------------------------
+Pour consulter le produit dont l'id =1 : http://localhost:8888/IVENTORY-SERVICE/products/1
+--------------------------------------------------------------------------------------------------------------------------
+Pour Ajouter un produit: http://localhost:8888/IVENTORY-SERVICE/products
+{
+    "id":128,
+    "name": "PRODUCT",
+    "price": 1024,
+    "quantity":512
+}
+---------------------------------------------------------------------------------------------------------------------------
+
+
