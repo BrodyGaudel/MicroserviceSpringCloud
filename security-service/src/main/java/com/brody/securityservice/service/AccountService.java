@@ -1,4 +1,4 @@
-package com.brody.securityservice.sec.service;
+package com.brody.securityservice.service;
 
 import java.util.List;
 

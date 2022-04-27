@@ -1,4 +1,4 @@
-package com.brody.securityservice.sec.service.filter;
+package com.brody.securityservice.filter;
 
 import java.io.IOException;
 import java.util.Date;
@@ -21,6 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.brody.securityservice.util.JWTUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
@@ -48,10 +49,10 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		System.out.println("successfulAuthentication");
 		User user = (User) authResult.getPrincipal();
 		
-		Algorithm algo1 = Algorithm.HMAC256("mySecret1234");
+		Algorithm algo1 = Algorithm.HMAC256(JWTUtil.SECRET);
 		String jwtAccessToken = JWT.create()
 				.withSubject(user.getUsername())
-				.withExpiresAt(new Date(System.currentTimeMillis()+5*60*1000))
+				.withExpiresAt(new Date(System.currentTimeMillis()+JWTUtil.EXPIRE_ACCESS_TOKEN))
 				.withIssuer(request.getRequestURL().toString())
 				.withClaim("roles", user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
 				.sign(algo1); 
